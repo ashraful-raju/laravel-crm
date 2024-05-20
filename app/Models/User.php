@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Customer::class);
     }
+
+    /**
+     * Relation with the products
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
