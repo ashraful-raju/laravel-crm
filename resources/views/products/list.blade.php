@@ -40,7 +40,7 @@
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row"
                                     class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img class="w-10 h-10 rounded-full" src="{{ $product->avatar }}"
+                                    <img class="w-10 h-10 rounded-full" src="{{ $product->photo }}"
                                         alt="{{ $product->name }}">
                                     <div class="ps-3">
                                         <div class="text-base font-semibold">{{ $product->name }}</div>

@@ -64,4 +64,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * Relation with the invoice
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    function invoices()
+    {
+        return $this->hasMany(Invoice::class);
+    }
 }

@@ -17,9 +17,11 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade');
             $table->string('name');
-            $table->string('unit_price');
-            $table->string('pre_quantity')->nullable();
-            $table->string('available')->nullable();
+            $table->float('unit_price');
+            $table->string('brand')->nullable();
+            $table->text('description')->nullable();
+            $table->integer('pre_quantity')->nullable();
+            $table->integer('available')->nullable();
             $table->string('image', 255)->nullable();
             $table->timestamps();
         });

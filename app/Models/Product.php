@@ -30,9 +30,13 @@ class Product extends Model
         return $this->belongsTo(User::class);
     }
 
-    function getAvatarAttribute()
+    function getPhotoAttribute()
     {
         if ($this->image) {
+            if (str($this->image)->startsWith('https')) {
+                return $this->image;
+            }
+
             return Storage::url($this->image);
         }
         return 'https://ui-avatars.com/api/?name=' . $this->name;
