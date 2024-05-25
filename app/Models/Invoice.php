@@ -2,21 +2,47 @@
 
 namespace App\Models;
 
+use App\Traits\CommonScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
     use HasFactory;
+    use CommonScope;
+
     protected $fillable = [
         'user_id',
         'customer_id',
         'date',
         'inv_number',
         'notes',
-        'total_amount',
         'status'
     ];
+
+    protected $with = ['products'];
+
+    protected $appends = ['total_amount'];
+
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'date' => 'date',
+        ];
+    }
+
+    function getTotalAmountAttribute()
+    {
+        return $this->products->sum(function ($product) {
+            return $product->pivot->price * $product->pivot->quantity;
+        });
+    }
 
     /**
      * Relation with the user

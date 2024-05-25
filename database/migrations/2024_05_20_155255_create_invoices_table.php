@@ -21,8 +21,8 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->date('date');
             $table->string('inv_number');
+            $table->string('currency', 10)->default('$');
             $table->text('notes')->nullable();
-            $table->float('total_amount')->default(0);
             $table->string('status')->default('draft');
             $table->timestamps();
         });

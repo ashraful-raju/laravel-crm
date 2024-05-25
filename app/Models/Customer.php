@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\CommonScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class Customer extends Model
 {
     use HasFactory;
+    use CommonScope;
 
     protected $fillable = [
         'user_id',

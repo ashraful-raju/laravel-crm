@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
 
     Route::resource('invoices', InvoiceController::class);
+    Route::get('/invoices/create/products', [InvoiceController::class, 'getAddProductForm'])->name('invoices.create.product');
 });
 
 // Route::any('test', function () {
