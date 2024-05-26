@@ -95,6 +95,10 @@ class InvoiceController extends Controller
      */
     public function show(Invoice $invoice)
     {
+        if (request('print')) {
+            Debugbar::disable();
+            return view('invoices.print', compact('invoice'));
+        }
         return view('invoices.show', compact('invoice'));
     }
 

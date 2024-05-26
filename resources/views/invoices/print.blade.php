@@ -1,19 +1,8 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('View Invoice') }}
-            </h2>
-            <a class="px-4 py-2 text-white text-sm bg-cyan-700 hover:bg-cyan-900 rounded-md border"
-                href="{{ route('invoices.index') }}">
-                Back
-            </a>
-        </div>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 border rounded-lg shadow-lg px-6 py-8 max-w-md mx-auto mt-8">
+<x-print-layout>
+    <div class="py-12 print:p-0">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 print:max-w-full print:p-0 print:m-0">
+            <div
+                class="bg-white dark:bg-gray-800 border rounded-lg shadow-lg px-6 py-8 max-w-md print:max-w-full mx-auto mt-8">
                 <h1 class="font-bold text-2xl mb-6 text-center text-blue-600 dark:text-blue-400">{{ config('app.name') }}
                 </h1>
                 <hr class="mb-2">
@@ -63,12 +52,12 @@
                 <div class="text-gray-700 dark:text-gray-300 mb-2">Thank you for your business!</div>
                 <div class="text-gray-700 dark:text-gray-300 text-sm">Please remit payment within 30 days.</div>
             </div>
-
-            <div class="flex w-full justify-center item-center">
-                <x-primary-button onclick="window.location.href='{{ url()->current() }}?print=true'">
-                    Print
-                </x-primary-button>
-            </div>
         </div>
     </div>
-</x-app-layout>
+
+    <script>
+        (function() {
+            window.print();
+        })();
+    </script>
+</x-print-layout>
